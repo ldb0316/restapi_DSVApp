@@ -1,5 +1,7 @@
 package com.bbzz.datastandardsvalid.response;
 
+import org.springframework.http.HttpStatus;
+
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -8,9 +10,9 @@ import lombok.Setter;
 @NoArgsConstructor
 public class CmmResponseBody {
 	
-	private String resultCode;
+	private int statusCode;
 	
-	private String resultMessage;
+	private String statusMessage;
 	
 	private Object resultData;
 	
