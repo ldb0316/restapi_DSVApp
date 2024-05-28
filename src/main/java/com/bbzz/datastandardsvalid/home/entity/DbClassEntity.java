@@ -1,22 +1,23 @@
 package com.bbzz.datastandardsvalid.home.entity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
-
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 import lombok.Getter;
-import lombok.Setter;
 
 @Entity
 @Getter
-@Setter
-@Table(name="db_class")
+@Table(name="db_class", schema = "fsmsusr")
 public class DbClassEntity {
 
+	
+//	private Long id;
 
 	/** class_name */
+	@Id
 	@Column(length=255)
-	private String className; 
+	private String className;
 	
 
 	/** class_type */

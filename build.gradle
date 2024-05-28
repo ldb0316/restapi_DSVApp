@@ -11,6 +11,10 @@ java {
 	sourceCompatibility = '17'
 }
 
+compileJava { //RequestParam에 name지정안해도 되도록 추가
+	options.compilerArgs << '-parameters'
+}
+
 configurations {
 	compileOnly {
 		extendsFrom annotationProcessor
@@ -30,8 +34,10 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	implementation 'cubrid:cubrid-jdbc:11.2.0.0035'
 	implementation 'org.hibernate:hibernate-core:6.5.2.Final'
+	// https://mvnrepository.com/artifact/org.hibernate/hibernate-core
+	//implementation group: 'org.hibernate', name: 'hibernate-core', version: '5.6.15.Final'
 	// https://mvnrepository.com/artifact/org.hibernate/hibernate-entitymanager
-	implementation 'org.hibernate:hibernate-entitymanager:5.6.15.Final'
+	//implementation 'org.hibernate:hibernate-entitymanager:5.6.15.Final'
 	implementation 'org.hibernate.orm:hibernate-community-dialects' //hibernate 6.x이상부터는 cubrid dialect를 제공하지 않는다.
 	
 	
@@ -41,6 +47,7 @@ dependencies {
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 }
+
 
 tasks.named('test') {
 	useJUnitPlatform()
