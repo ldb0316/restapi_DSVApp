@@ -11,8 +11,6 @@ import lombok.Getter;
 @Table(name="db_class", schema = "fsmsusr")
 public class DbClassEntity {
 
-	
-//	private Long id;
 
 	/** class_name */
 	@Id

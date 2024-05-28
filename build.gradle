@@ -11,10 +11,6 @@ java {
 	sourceCompatibility = '17'
 }
 
-compileJava { //RequestParam에 name지정안해도 되도록 추가
-	options.compilerArgs << '-parameters'
-}
-
 configurations {
 	compileOnly {
 		extendsFrom annotationProcessor
