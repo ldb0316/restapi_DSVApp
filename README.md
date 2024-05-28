@@ -43,3 +43,28 @@
   - 데이터 타입(도메인)이 서로 다르거나
   - 도메인은 같으나 TO-BE 데이터 길이가 AS-IS보다 짧아서 수용하지 못하는 경우
   - TO-BE가 NULL 불가인데 AS-IS는 NULL 가능인 경우
+ 
+# 메모
+
+
+#### 1. hibernate-core 5.x. 버전부터는 hibernate-entitymanager가 자체적으로 포함된다.
+#### 2. hibernate-core 6.x이상 버전부터는 cubrid dialect를 제공하지 않는다. 별도로 build.gradle에 dialect(방언) 라이브러리를 명시해주어야 함
+``` gradle
+implementation 'org.hibernate.orm:hibernate-community-dialects'
+```
+#### 3. cubrid jdbc 별도 명시 필요
+``` gradle
+repositories {
+	mavenCentral()
+	maven { // CUBRID를 위한 repository 추가
+		url 'https://maven.cubrid.org'
+	}
+}
+
+dependencies {
+    ~
+	implementation 'cubrid:cubrid-jdbc:11.2.0.0035'
+    ~
+}
+
+```
